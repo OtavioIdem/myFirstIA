@@ -1,0 +1,52 @@
+*****MANUAL DE DESENVOLVIMENTO DA SIDEBAR*****
+
+----------------------------------------------
+
+***INÍCIO***
+- Procure pelo arquivo "opcoesSidebar.jsx" e o abra no caminho "C:\Users\Pedro Perez\Documents\GIT\template-sistemas-frontend\src\data". Neste arquivo se encontram as âncoras e abas que aparecem na sidebar.
+
+
+***COMO ADICIONAR UMA ÂNCORA***
+- Dentro do arquivo aberto, procure pela função "opcoesMenuUsuarioInicio" e adicione dentro do array que ela retorna um objeto que especifica as informações da âncora.
+EX: {
+      label: "Descrição da âncora",
+      icon: "Ícone",
+      href: "/coloque-a-url-aqui",
+      id: "identificador-unico-da-ancora", /* O ID é obrigatório na âncora, para que seja possível colori-la quando o usuário estiver na página da aba correspondente */
+      visible: true /* Opcional. Usado para o controle de acesso do usuário. */
+    }
+
+
+***COMO ADICIONAR UMA ABA EXPANSÍVEL***
+- Dentro do arquivo aberto, procure pela função "opcoesMenuUsuarioInicio" e adicione dentro do array que ela retorna um objeto que especifica as informações da aba expansível. É um objeto parecido com o da âncora.
+EX: {
+      label: "Descrição da aba",
+      icon: "Ícone da aba",
+      visible: manager,
+      id: "identificador-unico-da-aba", /* Não obrigatório nas abas. */
+      items: [ /* Aqui ficam os itens que a aba irá mostrar ao ser expandida. Podem ser adicionadas âncoras e outras abas expansíveis */
+        {
+            label: "Descrição da âncora",
+            icon: "Ícone",
+            href: "/coloque-a-url-aqui",
+            id: "identificador-unico-da-ancora",
+        },
+      ],
+    }
+
+
+***INFORMAÇÕES IMPORTANTES***
+- Para que a âncora da página recorrente seja destacada corretamente na sidebar, e também para que as abas sejam expandidas até a âncora da página atual ao carregar, é necessário seguir os seguintes passos:
+
+1° - É necessário colocar o ID da mesma no objeto colocado na sidebar /* Você pode colocar um ID aleatório, mas é importante que ele seja único */
+
+2 - É necessário atualizar o contexto "PaginaAtualContext" com o mesmo ID colocado no objeto da âncora da sidebar, podendo utilizar o hook personalizado "useCurrentPage".
+EX: /* Importe o hook "useCurrentPage" */
+    const { setCurrentPage } = useCurrentPage();
+    useEffect(()=>{
+        setCurrentPage("id-pagina-atual");
+    }, []);
+
+
+***OBSERVAÇÃO***
+- Por aba, só é possível adicionar uma aba expansível dentro de outra 5 vezes.

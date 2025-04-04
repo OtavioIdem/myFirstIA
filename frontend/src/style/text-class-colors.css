@@ -1,0 +1,32 @@
+:root {
+  --text-danger: #e24c4c;
+  --text-success: #1da750;
+  --text-warning: #eab308;
+  --text-primary: #3b82f6;
+  --text-secondary: #9da4b0ff;
+  --text-dark: #000000;
+}
+
+.text-success {
+  color: var(--text-success) !important;
+}
+
+.text-danger {
+  color: var(--text-danger) !important;
+}
+
+.text-warning {
+  color: var(--text-warning) !important;
+}
+
+.text-primary {
+  color: var(--text-primary) !important;
+}
+
+.text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+.text-dark {
+  color: var(--text-dark) !important;
+}

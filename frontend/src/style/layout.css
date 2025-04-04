@@ -1,0 +1,109 @@
+.sm-w-full {
+  width: auto;
+}
+.col-input {
+  padding: 0.5rem;
+}
+
+.col-btn {
+  padding: 0.5rem;
+}
+
+.sm-mb-2 {
+  margin-bottom: auto;
+}
+
+.form-control {
+  position: relative;
+}
+
+.input-grid {
+  width: auto;
+}
+
+.card-form-btn {
+  display: flex;
+  width: 650px;
+  margin-right: -0.5rem;
+  margin-left: -0.5rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+.card-form {
+  display: flex;
+  width: 100%;
+  margin-right: -0.5rem;
+  margin-left: -0.5rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+@media screen and (width < 850px) {
+  .btn-grid span {
+    word-break:break-all !important;
+  }
+}
+
+@media screen and (width < 768px) {
+  .card-grid-custom {
+    width: 100% !important;
+  }
+
+  .card-form-btn {
+    width: 100% !important;
+  }
+
+  .card-form {
+    flex-direction: column;
+  }
+
+  .col-btn {
+    width: 100% !important;
+  }
+
+  .col-input {
+    width: 100% !important;
+  }
+
+  .input-grid {
+    width: 100% !important;
+  }
+
+  .btn-grid {
+    width: 100% !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  .sm-w-full {
+    width: 100%;
+  }
+
+  .sm-mb-2 {
+    margin-bottom: 0.5rem !important;
+  }
+}
+
+@media screen and (width < 340px) {
+  .title-header-container .p-card-title {
+    word-break: break-all !important;
+    margin-left: 0 !important;
+  }
+
+  .back-btn-container {
+    display: none !important;
+  }
+
+  .header .default-header {
+    overflow-x: auto !important;
+  }
+
+  .p-card-content {
+    overflow-y: auto !important;
+  }
+
+  .footer {
+    overflow-x: auto !important;
+  }
+}

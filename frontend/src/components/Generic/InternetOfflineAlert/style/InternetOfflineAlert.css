@@ -1,0 +1,104 @@
+.internet-offline-alert-body {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  animation: hideImg 20s steps(3) 1;
+}
+
+.internet-offline-container {
+  padding: 0.7rem;
+  border-radius: 1.5rem;
+}
+
+.internet-offline-img {
+  height: 100px;
+  width: 100px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: inherit;
+}
+
+.internet-offline-img.felidae {
+  animation: changeImgFelidae 1.8s infinite steps(3);
+}
+
+.internet-offline-img.vansil {
+  animation: changeImgVansil 1.8s infinite steps(3);
+}
+
+.internet-offline-img.naturelab {
+  animation: changeImgNature 1.8s infinite steps(3);
+}
+
+.internet-offline-dialog .p-dialog-header .p-dialog-header-icons {
+  display: none !important;
+}
+
+@keyframes changeImgFelidae {
+  0% {
+    background-image: url("/no-internet1-felidae.png");
+  }
+  50% {
+    background-image: url("/no-internet2-felidae.png");
+  }
+  100% {
+    background-image: url("/no-internet3-felidae.png");
+  }
+}
+
+@keyframes changeImgVansil {
+  0% {
+    background-image: url("/no-internet1-vansil.png");
+  }
+  50% {
+    background-image: url("/no-internet2-vansil.png");
+  }
+  100% {
+    background-image: url("/no-internet3-vansil.png");
+  }
+}
+
+@keyframes changeImgNature {
+  0% {
+    background-image: url("/no-internet1-naturelab.png");
+  }
+  50% {
+    background-image: url("/no-internet2-naturelab.png");
+  }
+  100% {
+    background-image: url("/no-internet3-naturelab.png");
+  }
+}
+
+@keyframes hideImg {
+  0% {
+    opacity: 100;
+  }
+  99% {
+    opacity: 100;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}

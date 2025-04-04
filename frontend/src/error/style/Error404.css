@@ -1,0 +1,84 @@
+.content-page-error404 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.logo-notfound-container {
+  height: 120px;
+  display: block;
+}
+
+.content-page {
+  height: 100%;
+}
+
+.logo-sis-container {
+  height: 75px;
+}
+
+.logo-sis {
+  height: 100%;
+}
+
+.sis-logo-message-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.gray-text-light {
+  color: #8a8a8a !important;
+}
+
+.header-page-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.message-container {
+  max-width: 500px;
+  overflow: auto;
+}
+
+.container-element-page {
+  display: flex;
+  padding: 2rem;
+  border-radius: 1.5625rem;
+  box-shadow: 0 2px 6px 1px #0000004d;
+  overflow: auto;
+}
+
+.container-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 653px) {
+  .message-container {
+    min-width: 500px;
+  }
+}
+
+@media (max-width: 300px) {
+  .container-element-page {
+    box-shadow: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+  }
+  .sis-logo-message-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-height: 240px) {
+  .container-element-page {
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+}

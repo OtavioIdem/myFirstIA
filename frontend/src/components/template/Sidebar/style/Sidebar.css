@@ -1,0 +1,129 @@
+.sidebar-default {
+  position: absolute;
+  margin-right: 5px;
+  z-index: 10;
+  overflow-y: auto !important;
+  display: flex;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 2px;
+  top: 0px;
+  margin-top: var(--sidebar-margin-top);
+  left: 0;
+  margin-left: 8px;
+  transition: max-width 0.25s ease-in-out;
+  width: auto;
+  max-width: 260px;
+  overflow-x: hidden;
+  bottom: var(--footer-height);
+  margin-bottom: 8px;
+}
+
+.sidebar-default:focus-visible .p-card-body {
+  border: none !important;
+}
+
+.sidebar-default-closed {
+  max-width: 0px !important;
+}
+
+#sidebar-default-width-container ul li a {
+  border-radius: 15rem !important;
+}
+
+.sidebar-default .p-card-body {
+  padding: 1rem !important;
+}
+
+.sidebar-default .p-card-body .p-card-content {
+  padding: 0 !important;
+}
+
+.sidebar-default-preparing {
+  top: -112px !important;
+}
+
+.anchor-default-sidebar-father {
+  margin-bottom: 0.5rem;
+}
+
+.anchor-default-sidebar a {
+  text-decoration: none !important;
+}
+
+.sidebar-default-container-fixed {
+  position: fixed;
+  top: 3.5rem !important;
+  left: 0 !important;
+  margin-top: 0 !important;
+  height: auto !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+.sidebar-default-width-fixed {
+  width: 228px !important;
+}
+
+.rounded-btn {
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 50px;
+  height: 50px;
+  border-radius: 50% !important;
+}
+.rounded-btn .p-button-label {
+  display: none !important;
+}
+
+.close-sidebar-btn {
+  display: none;
+}
+
+@media (min-width: 4500px) {
+  .sidebar-default {
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 4px !important;
+  }
+
+  #default-card-container .card-custom {
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 4px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .close-sidebar-btn {
+    display: flex !important;
+  }
+
+  .sidebar-default {
+    position: fixed !important;
+    top: 0 !important;
+    margin: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    height: auto !important;
+    justify-content: flex-start !important;
+    transition: none !important;
+    z-index: 1040 !important;
+    max-width: 100% !important;
+  }
+
+  .sidebar-default-closed {
+    display: none !important;
+  }
+
+  div:has(.sidebar-default) {
+    z-index: 15 !important;
+  }
+  div:has(#sidebar-default-width-container) {
+    width: 100% !important;
+  }
+  #sidebar-default-width-container {
+    width: 100% !important;
+  }
+
+  .sidebar-default .p-card-body .p-card-content .card div {
+    width: 100% !important;
+  }
+}

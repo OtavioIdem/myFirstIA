@@ -1,0 +1,35 @@
+.sis-logo-loading-container {
+  height: 170px;
+  width: 170px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.sis-logo-loading {
+  height: 120px;
+  width: 120px;
+  z-index: 10;
+}
+
+.overlay-sis-logo-loading{
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  height: 105px;
+  width: 105px;
+  margin-left: 32.5px;
+  margin-top: 32.5px;
+  z-index: 9;
+  border-radius: 50%;
+}
+
+
+.sis-logo-loading-puff {
+  position: absolute !important;    
+  top: 0;
+  left: 0;
+  z-index: 8;
+}

@@ -1,0 +1,27 @@
+.p-tooltip {
+  display: none !important;
+}
+
+.p-dropdown .p-dropdown-label {
+  border: none;
+}
+
+.p-inputtext {
+  border: rgb(141, 141, 141) solid 1px;
+}
+
+.p-dropdown {
+  border: rgb(141, 141, 141) solid 1px;
+}
+
+.menu-sidebar-header-btn{
+  background-color: rgba(134, 134, 134, 0.2);
+}
+
+.menu-header {
+  width: 100% !important;
+}
+
+.toast-mobile{
+  margin-top: 50px !important;
+}

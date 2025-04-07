@@ -1,0 +1,54 @@
+.grupo-felidae-logo-login-container {
+  position: absolute;
+  bottom: 0.25rem;
+  right: 0.5rem;
+  height: 50px;
+  display: flex;
+  align-items: flex-end;
+}
+.grupo-felidae-logo-login {
+  height: 100%;
+}
+
+.vansil-naturelab-logo-login {
+  height: 50%;
+  margin-bottom: 7px;
+}
+
+.grupo-felidae-logo-login-container2 {
+  position: absolute;
+  bottom: 0.25rem;
+  left: 0.5rem;
+  height: 50px;
+}
+
+.progress-bar-login-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.card-login {
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0 1px 11px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+}
+
+.sislogo-login {
+  height: 120px;
+  width: 120px;
+}
+
+.header-container {
+  padding: 1rem;
+}
+
+.p-card-header {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* @media(max-width: 768px){
+  .card-login{
+    box-shadow: none !important;
+  }
+} */

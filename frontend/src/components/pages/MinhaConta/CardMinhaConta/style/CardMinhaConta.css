@@ -1,0 +1,49 @@
+table.table-configuracoes {
+  border: rgba(184, 184, 184, 0.548) solid 1px !important;
+  border-radius: 12px !important;
+  position: relative;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
+.table-configuracoes th {
+  padding: 0.8rem !important;
+}
+
+.divider-table {
+  position: absolute;
+  border-top: rgba(184, 184, 184, 0.548) solid 1px;
+  width: 100%;
+  left: 0;
+}
+
+.container-configuracoes .user-profile-container {
+  height: 17rem;
+  width: 17rem;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.container-configuracoes .user-profile-container .user-profile {
+  border-radius: 50% !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  border: solid 3px rgba(184, 184, 184, 0.548);
+}
+
+.card-profile-container {
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .table-container {
+    width: 100% !important;
+    overflow-x: auto;
+  }
+  table.table-configuracoes {
+    padding: 0rem !important;
+  }
+}

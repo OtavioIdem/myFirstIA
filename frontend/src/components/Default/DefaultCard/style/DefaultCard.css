@@ -1,0 +1,35 @@
+.title-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.card-btn {
+  padding: 0.75rem;
+  border: var(--secondary-btn) solid 1px;
+  background-color: var(--secondary-btn);
+  height: 2.7rem !important;
+  aspect-ratio: 1 / 1;
+  border-radius: 25px !important;
+  color: var(--secondary-btn-font-color);
+  outline: none !important;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+  transform: translate(0, -15%);
+}
+.card-btn:active {
+  border: var(--secondary-btn-active) solid 1px;
+  background-color: var(--secondary-btn-active);
+  border-radius: 25px !important;
+  color: var(--text-gray);
+}
+
+.title-margin-left {
+  margin-left: 2.7rem !important;
+}

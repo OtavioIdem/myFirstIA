@@ -3,8 +3,9 @@ from app.api.routes import router
 
 app = FastAPI(title="IA Chatbot Corporate", version="0.1.0")
 
-#router register
+# router register
 app.include_router(router)
+
 
 @app.get("/")
 def read_root():

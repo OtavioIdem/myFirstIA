@@ -1,25 +1,44 @@
 from app.services.embedding_services import gerar_embedding
 from app.services.openai_services import obter_resposta_openai
 from app.repositories.question_repository import buscar_resposta_similar, salvar_pergunta_resposta
+from app.ml.model_handler import carregar_modelo
+from app.ml.classifier import EmbeddingClassifier
+import torch
+
+# Parametros do modelo
+INPUT_SIZE = 384
+NUM_CLASSES = 5
+
+# Carregar o modelo treinado
+modelo_classificador = carregar_modelo(EmbeddingClassifier, INPUT_SIZE, NUM_CLASSES)
+
+mapa_tema_id = {
+    0: "sap",
+    1: "vendas",
+}
 
 
-async def handle_question(question:str, systemId:int, sisId:int):
-    """
-    Função para processar a pergunta e retornar a resposta.
-    """
-    # Gerar o embedding da pergunta
+async def handle_question(question: str, systemId: int, sisId: int):
+    # 1. Gera embedding
     embedding = gerar_embedding(question)
 
-    # Buscar resposta similar no banco de dados
-    resposta_similar = buscar_resposta_similar(embedding, systemId)
+    # 2. Previsão de tema com rede neural
+    entrada = torch.tensor([embedding], dtype=torch.float32)
+    saida = modelo_classificador(entrada)
+    tema_previsto = torch.argmax(saida, dim=1).item()
 
-    if resposta_similar:
-        return resposta_similar
+    # (Opcional) imprimir ou logar o tema previsto
+    print(f"Tema previsto: {tema_previsto}")
 
-    # Se não houver resposta similar, obter uma nova resposta usando OpenAI
-    nova_resposta = await obter_resposta_openai(question)
+    # 3. Busca por resposta similar (por embedding e sistema)
+    resposta_existente = buscar_resposta_similar(embedding, systemId)
+    if resposta_existente:
+        return resposta_existente
 
-    # Salvar a nova pergunta e resposta no banco de dados
-    salvar_pergunta_resposta(question, nova_resposta, embedding, systemId, sisId)
+    # 4. Fallback: OpenAI
+    resposta = obter_resposta_openai(question)
 
-    return nova_resposta
+    # 5. Armazena para aprendizado futuro
+    salvar_pergunta_resposta(question, resposta, embedding, systemId, sisId)
+
+    return resposta

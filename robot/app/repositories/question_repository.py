@@ -1,14 +1,21 @@
 import pyodbc
-import os
-from dotenv import load_dotenv
+import app.core.config as settings
 import numpy as np
 from numpy.linalg import norm
 
-load_dotenv()
 
 # Connect to the database
+
+
 def connect_to_db():
-    return pyodbc.connect(os.getenv("DATABASE_URL"))
+    """
+    Connects to the database using the DATABASE_URL environment variable.
+
+    Returns:
+    pyodbc.Connection: A connection object to the database.
+    """
+    return pyodbc.connect(settings.DATABASE_URL)
+
 
 def save_question_response(question, response, embedding, systemId, sisId):
     conn = connect_to_db()
@@ -30,8 +37,8 @@ def similar_response(embedding, system_id, limiar_similaridade=0.92):
     cursor = conn.cursor()
 
     query = """
-    SELECT id, question, response, embedding 
-    FROM IA_QUESTIONRESPONSE 
+    SELECT id, question, response, embedding
+    FROM IA_QUESTIONRESPONSE
     WHERE systemId = ?
     """
     cursor.execute(query, (system_id,))
@@ -49,3 +56,30 @@ def similar_response(embedding, system_id, limiar_similaridade=0.92):
 
     conn.close()
     return None
+
+
+def get_training_data():
+    """
+    Busca embeddings e rótulos de tema para treinar o classificador
+    Supondo que IA_QUESTIONRESPONSE tenha uma coluna 'tema' para o rótulo
+    """
+
+    conn = connect_to_db()
+    cursor = conn.cursor()
+
+    query = "SELECT embedding, temaId FROM IA_QUESTIONRESPONSE WHERE temaId IS NOT NULL"
+    cursor.execute(query)
+    rows = cursor.fetchall()
+    conn.close()
+
+    embeddings = []
+    labels = []
+
+    for row in rows:
+        embedding = np.frombuffer(row.embedding, dtype=np.float32)
+        embeddings.append(embedding)
+        labels.append(row.temaId)
+
+    num_classes = len(set(labels))
+
+    return embeddings, labels, num_classes

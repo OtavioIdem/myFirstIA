@@ -1,21 +1,19 @@
 import openai
-import os
-from dotenv import load_dotenv
+import app.core.config as settings
 
-# Carrega as variáveis de ambiente do arquivo .env
-load_dotenv()
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = settings.OPENAI_API_KEY
 
-def obter_resposta_openai(question:str) -> str:
+
+def obter_resposta_openai(question: str) -> str:
     """
     Envia a pergunta à API da OpenAI e retorna a resposta.
     """
 
     try:
         response = openai.ChatCompletion.create(
-            model = "gpt-3.5-turbo",
-            messages = [
+            model="gpt-3.5-turbo",
+            messages=[
                 {"role": "system", "content": (
                     "Você é um assistente corporativo especializado no sistema SAP, treinado para fornecer explicações técnicas, "
                     "esclarecimentos de funcionalidades e suporte conceitual aos usuários. Sempre interprete e reestruture a pergunta do usuário, "
@@ -23,11 +21,16 @@ def obter_resposta_openai(question:str) -> str:
                     "Caso a solicitação esteja fora do escopo do SAP, responda de forma educada e profissional, indicando que não possui essa informação."
                 )},
                 {"role": "user", "content": question}
-            ],                            ## 1 token = 4 caracte (150 aproximadamente 600 caracteres)
-            max_tokens = 150,             ## Limite de tokens para a resposta
-            n = 1 if os.getenv("TREINNING") == "true" else 3,   ## Número de respostas a serem geradas, para treinamento usar 3 para produção usar 1
-            stop = None,                  ## Sequência de parada (None para não usar)
-            temperature = 0.3 if os.getenv("TREINNING") == "true" else 0.7,      ## Controle de aleatoriedade (0.0 a 1.0)
+            ],
+            # 1 token = 4 caracte (150 aproximadamente 600 caracteres)
+            # Limite de tokens para a resposta
+            max_tokens=150,
+            # Número de respostas geradas, treinamento = 3; produção = 1
+            n=1 if settings.TREINNING == "true" else 3,
+            # Sequência de parada (None para não usar)
+            stop=None,
+            # Controle de aleatoriedade (0.0 a 1.0)
+            temperature=0.3 if settings.TREINNING == "true" else 0.7,
         )
 
         return response.choices[0].message['content'].strip()

@@ -15,7 +15,7 @@ def salvar_modelo(model, path=MODEL_PATH):
 def carregar_modelo(model_class, input_size, num_classes, path=MODEL_PATH):
     """
     Carrega o estado do modelo salvo.
-    model_class: classe do moduelo (ex: EmbeddingsClassifier)
+    model_class: classe do modulo (ex: EmbeddingsClassifier)
     """
     model = model_class(input_size, num_classes)
     model.load_state_dict(torch.load(path))

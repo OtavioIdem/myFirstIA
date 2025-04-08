@@ -12,6 +12,11 @@ NUM_CLASSES = 5
 # Carregar o modelo treinado
 modelo_classificador = carregar_modelo(EmbeddingClassifier, INPUT_SIZE, NUM_CLASSES)
 
+mapa_tema_id = {
+    0: "sap",
+    1: "vendas",
+}
+
 
 async def handle_question(question: str, systemId: int, sisId: int):
     # 1. Gera embedding

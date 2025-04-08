@@ -1,21 +1,22 @@
  # Conteúdo:
-   fastapi[all]
-   uvicorn
-   torch
-   torchvision
-   torchaudio
-   scikit-learn
-   sentence-transformers
-   faiss-cpu
-   transformers
-   pandas
-   numpy
-   joblib
-   matplotlib
-   seaborn
-   pyodbc  # Para conexão com SQL Server
-   python-dotenv
-   pydantic
-   aiohttp
-   requests
-   openai
+  #  fastapi[all]
+  #  uvicorn
+  #  torch
+  #  torchvision
+  #  torchaudio
+  #  scikit-learn
+  #  sentence-transformers
+  #  faiss-cpu
+  #  transformers
+  #  pandas
+  #  numpy
+  #  joblib
+  #  matplotlib
+  #  seaborn
+  #  pyodbc  # Para conexão com SQL Server
+  #  python-dotenv
+  #  pydantic
+  #  aiohttp
+  #  requests
+  #  openai
+  #  sqlalchemy 

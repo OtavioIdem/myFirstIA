@@ -61,3 +61,22 @@ def get_training_data():
 
     num_class = len(set(labels))
     return embeddings, labels, num_class
+
+
+def get_data_by_theme(theme_id: int):
+    db: Session = SessionLocal()
+    registros = db.query(Question).filter(
+        Question.temaId == theme_id,
+        Question.embedding.isnot(None)
+    ).all()
+    db.close()
+
+    embeddings = []
+    labels = []
+
+    for r in registros:
+        emb = np.frombuffer(r.embedding, dtype=np.float32)
+        embeddings.append(emb)
+        labels.append(0)  # sempre 0 pois é um modelo binário por tema
+
+    return embeddings, labels

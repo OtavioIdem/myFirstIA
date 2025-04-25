@@ -36,4 +36,4 @@ def obter_resposta_openai(question: str) -> str:
         return response.choices[0].message['content'].strip()
     except Exception as e:
         print(f"Erro ao obter resposta da OpenAI: {str(e)}")
-        return "Desculpe, não consegui processar sua pergunta no momento."
+        return "Desculpe, não consigo processar sua pergunta no momento."
